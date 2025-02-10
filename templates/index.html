@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Downloader</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Hide overflow for smooth animation */
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+            width: 350px;
+            text-align: center;
+        }
+
+        input[type="text"], select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, select:focus {
+            background-color: #444;
+        }
+
+        button {
+            background-color: #ff6347;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ff4500;
+        }
+
+        button:active {
+            background-color: #e03e00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        /* Animation styling for left and right floating circles */
+        .floating-circle {
+            position: absolute;
+            top: 50%;
+            width: 120px;
+            height: 120px;
+            background-color: rgba(255, 99, 71, 0.6); /* Slight transparency */
+            border-radius: 50%;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .circle-left {
+            left: -120px;
+            animation-delay: 0s;
+        }
+
+        .circle-right {
+            right: -120px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(-30px);
+            }
+            50% {
+                transform: translateY(30px);
+            }
+            100% {
+                transform: translateY(-30px);
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <h2>YouTube Video & Audio Downloader</h2>
+        <form method="post">
+            <label>Enter YouTube URL:</label>
+            <input type="text" name="url" placeholder="Paste the URL here..." required>
+            <br><br>
+            <label>Select Format:</label>
+            <select name="format">
+                <option value="video">MP4 (Video)</option>
+                <option value="audio">MP3 (Audio)</option>
+            </select>
+            <br><br>
+            <button type="submit">Download</button>
+        </form>
+    </div>
+
+    <!-- Floating circles -->
+    <div class="floating-circle circle-left"></div>
+    <div class="floating-circle circle-right"></div>
+
+    <script>
+        // Add subtle animation effect to the form when it loads
+        window.addEventListener('load', function() {
+            const form = document.querySelector('form');
+            form.style.transform = 'scale(0)';
+            setTimeout(() => {
+                form.style.transition = 'transform 0.5s ease-out';
+                form.style.transform = 'scale(1)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
