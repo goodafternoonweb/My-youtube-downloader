@@ -11,7 +11,7 @@ def download_video(url, format_type):
     ydl_opts = {
         "outtmpl": f"{DOWNLOAD_FOLDER}/%(title)s.%(ext)s",
         "format": "mp4" if format_type == "video" else "bestaudio",
-        "ffmpeg_location": r"C:\ffmpeg-master-latest-win64-gpl-shared\bin",  # Update this to the actual FFmpeg path
+        "ffmpeg_location": r"C:\ffmpeg-master-latest-win64-gpl-shared\bin",
     }
 
     if format_type == "audio":
