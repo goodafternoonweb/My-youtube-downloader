@@ -11,13 +11,15 @@ def download_video(url, format_type):
     ydl_opts = {
         "outtmpl": f"{DOWNLOAD_FOLDER}/%(title)s.%(ext)s",
         "format": "mp4" if format_type == "video" else "bestaudio",
-        "postprocessors": [{
+        "ffmpeg_location": r"C:\ffmpeg-master-latest-win64-gpl-shared\bin",  # Update this to the actual FFmpeg path
+    }
+
+    if format_type == "audio":
+        ydl_opts["postprocessors"] = [{
             "key": "FFmpegExtractAudio",
             "preferredcodec": "mp3",
             "preferredquality": "192",
-        }] if format_type == "audio" else [],
-        "ffmpeg_location": r"C:\ffmpeg-master-latest-win64-gpl-shared\bin",  # Add the path to your FFmpeg bin folder
-    }
+        }]
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
