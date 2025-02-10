@@ -15,7 +15,6 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            overflow: hidden; /* Hide overflow for smooth animation */
         }
 
         h2 {
@@ -75,62 +74,25 @@
                 width: 90%;
             }
         }
-
-        /* Animation styling for left and right floating circles */
-        .floating-circle {
-            position: absolute;
-            top: 50%;
-            width: 120px;
-            height: 120px;
-            background-color: rgba(255, 99, 71, 0.6); /* Slight transparency */
-            border-radius: 50%;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .circle-left {
-            left: -120px;
-            animation-delay: 0s;
-        }
-
-        .circle-right {
-            right: -120px;
-            animation-delay: 2s;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(-30px);
-            }
-            50% {
-                transform: translateY(30px);
-            }
-            100% {
-                transform: translateY(-30px);
-            }
-        }
-
     </style>
 </head>
 <body>
     <div>
         <h2>YouTube Video & Audio Downloader</h2>
-        <form method="post">
-            <label>Enter YouTube URL:</label>
-            <input type="text" name="url" placeholder="Paste the URL here..." required>
-            <br><br>
-            <label>Select Format:</label>
-            <select name="format">
-                <option value="video">MP4 (Video)</option>
-                <option value="audio">MP3 (Audio)</option>
-            </select>
-            <br><br>
-            <button type="submit">Download</button>
-        </form>
-    </div>
+       <form method="post">
+    <label>Enter YouTube URL:</label>
+    <input type="text" name="url" placeholder="Paste the URL here..." required>
+    <br><br>
+    <label>Select Format:</label>
+    <select name="format">
+        <option value="video">MP4 (Video)</option>
+        <option value="audio">MP3 (Audio)</option>
+    </select>
+    <br><br>
+    <button type="submit">Download</button>
+</form>
 
-    <!-- Floating circles -->
-    <div class="floating-circle circle-left"></div>
-    <div class="floating-circle circle-right"></div>
+    </div>
 
     <script>
         // Add subtle animation effect to the form when it loads
